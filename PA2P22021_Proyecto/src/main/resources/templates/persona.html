@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <title>UTH</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="display: flex;justify-content: center;">
+        <div style="padding: 20px;-moz-box-shadow: 0px 0px 30px #2F75B5;
+      -webkit-box-shadow: 0px 0px 30px #2F75B5;
+      box-shadow: 0px 0px 30px #2F75B5; border-radius:10px" align="center">
+            <h1>Formulario persona</h1><br>
+            <form action="#" method="POST" th:action="@{/guardarformulario}" th:object="${persona}">
+                <table>
+                    <tr>
+                        <td style="text-align: right">
+                            Id
+                        </td>
+                        <td>
+                            <input type="text" id="id" name="id" th:field="*{id}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            Nombre
+                        </td>
+                        <td>
+                            <input type="text" id="nombre" name="nombre" th:field="*{nombre}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            Correo
+                        </td>
+                        <td>
+                            <input type="text" id="correo" name="correo" th:field="*{correo}">
+                        </td>
+                    </tr>
+                </table><br>
+                <button type="submit" >Guardar Persona</button>
+            </form>
+        </div>
+    </body>
+</html>

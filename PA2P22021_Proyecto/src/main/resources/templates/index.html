@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            .boton_style{
+                color:white;
+                radius:5px;
+                background: linear-gradient(royalblue,lightblue);
+                border: 0px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>APLICACION DE PERSONAS</h1>
+        <a href="/crear">Agregar</a>
+        <h2 th:if="${lista.isEmpty()}">NO HAY DATOS DE PERSONAS</h2><!-- SI ESTA VACIA LA LISTA -->
+        <div th:if="${!lista.isEmpty()}"><!<!-- SI NO ESTA VACIA LA LISTA -->
+            <h2>Lista de personas</h2>
+            <table border="2">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="persona:${lista}">
+                        <td th:text="$persona:id"></td>
+                        <td th:text="$persona:nombre"></td>
+                        <td th:text="$persona:correo"></td>
+                        
+                        <td>
+                            <a th:href="@{/actualizar/{id}(id=${persona.id})}">Actualizar</a>
+                            
+                        </td>
+                        <td>
+                            <a th:href="@{/eliminar/{id}(id=${persona.id})}">Borrar</a>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        
+    </body>
+</html>
